@@ -68,6 +68,7 @@ nav ul{
 
 @media  screen and (max-width:830px) {
     ol{
+        display: none;
         width: 100%;
         background-color: #ff002f;
         position: fixed;
@@ -77,6 +78,7 @@ nav ul{
         height: 100vh;
         justify-content: center;
         align-items: center;
+    
     }
 
     .mobile-icons{
