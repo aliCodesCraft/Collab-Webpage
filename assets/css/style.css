@@ -67,7 +67,7 @@ nav ul{
 
 
 @media  screen and (max-width:830px) {
-    ol{
+    nav ol{
         display: none;
         width: 100%;
         background-color: #ff002f;

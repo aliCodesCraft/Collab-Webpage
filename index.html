@@ -55,13 +55,25 @@
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-     <script>
-        $(document).ready(function(){
-            $(".menu-bar").click(function(){
-                $("ol").slideToggle(300)
-            })
-        })
-     </script>
+<script>
+$(document).ready(function() {
+    $(".menu-bar").click(function() {
+        // Check if the menu is currently hidden
+        if ($("ol").css("display") === "none") {
+            $("ol").stop(true, true).css("display", "flex").hide().slideDown(300); // Show the menu with animation
+        } else {
+            $("ol").stop(true, true).slideUp(300, function() {
+                $(this).css("display", "none"); // Hide the menu after animation
+            });
+        }
+
+        // Toggle the hamburger icon (rotate effect)
+        $(".ri-menu-line").toggleClass("ri-close-large-line");
+    });
+});
+
+
+</script>
 
 </body>
 </html>
