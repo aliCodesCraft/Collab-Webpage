@@ -21,7 +21,7 @@
         <nav>
             <!-- Logo -->
             <div class="logo">
-                <a href=""><h1>KATAKI</h1></a>
+               <h1>KATAKI</h1>
             </div>
             <!-- Tabs -->
              <ol>
@@ -30,11 +30,6 @@
                 <li><a href="">Skills</a></li>
                 <li><a href="">Portfolio</a></li>
                 <li><a href="">Contact</a></li>
-                <div class="mobile-icons">
-                    <a href=""><i class="ri-linkedin-box-fill"></i></a>
-                    <a href=""><i class="ri-github-fill"></i></a>
-                    <a href=""><i class="ri-instagram-fill"></i></a>
-                </div>
              </ol>
              <!-- Social Icons -->
               <div class="icons">
@@ -48,29 +43,52 @@
               <div class="menu-bar">
                 <i class="ri-menu-line"></i>
               </div>
-
         </nav>
+
+        <div class="mobile-container">
+            <div class="mobile-nav">
+                <!-- Logo -->
+                <div class="logo">
+                  <h1>KATAKI</h1>
+               </div>
+               <!-- Tabs -->
+                <ol>
+                   <li><a href="" class="active">Home</a></li>
+                   <li><a href="">About</a></li>
+                   <li><a href="">Skills</a></li>
+                   <li><a href="">Portfolio</a></li>
+                   <li><a href="">Contact</a></li>
+                </ol>
+                <!-- Social Icons -->
+                 <div class="icons">
+                   <ul>
+                       <li><a href=""><i class="ri-linkedin-box-fill"></i></a></li>
+                       <li><a href=""><i class="ri-github-fill"></i></a></li>
+                       <li><a href=""><i class="ri-instagram-fill"></i></a></li>
+                   </ul>
+                 </div>
+   
+              <div class="cross">
+                  <i class="ri-close-large-line"></i>
+                </div>
+          </div>
+        </div>
      </header>
 
 
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script>
-$(document).ready(function() {
-    $(".menu-bar").click(function() {
-        // Check if the menu is currently hidden
-        if ($("ol").css("display") === "none") {
-            $("ol").stop(true, true).css("display", "flex").hide().slideDown(300); // Show the menu with animation
-        } else {
-            $("ol").stop(true, true).slideUp(300, function() {
-                $(this).css("display", "none"); // Hide the menu after animation
-            });
-        }
 
-        // Toggle the hamburger icon (rotate effect)
-        $(".ri-menu-line").toggleClass("ri-close-large-line");
-    });
-});
+$(document).ready(function(){
+    $(".menu-bar").click(function(){
+        $(".mobile-container").show(300);
+    })
+
+    $(".cross").click(function(){
+        $(".mobile-container").fadeOut(300);
+    })
+})
 
 
 </script>
