@@ -1,95 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <!-- REMIX ICONS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background:#3a0547;
+    /* padding: 10px; */
+}
+
+
+.todo-list{
+    width: 100%;
+    max-width: 540px;
+    background-color: white;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-list h2{
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo-list img{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #edeef0;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+
+button{
+    border: none;
+    outline: none;
+    background-color: #ff5945;
+    color: white;
+    font-size: 16px;
+    padding: 16px 50px;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+ul li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before{
+    position: absolute;
+    content: '';
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(../images/unchecked.png);
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+}
+
+.checked{
+    color: #555;
+    text-decoration: line-through;
+}
+
+.checked::before{
+    background-image: url(../images/checked.png);
+}
+
+i{
+    position: absolute;
+    top: 17px;
+    right: 15px;
+    color: #555;
+    font-size: larger;
+}
+</style>
 </head>
 <body>
-    <!-- Header Start -->
-     <header>
-        <!-- Navbar -->
-        <nav>
-            <!-- Logo -->
-            <div class="logo">
-               <h1>KATAKI</h1>
-            </div>
-            <!-- Tabs -->
-             <ol>
-                <li><a href="" class="active">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Skills</a></li>
-                <li><a href="">Portfolio</a></li>
-                <li><a href="">Contact</a></li>
-             </ol>
-             <!-- Social Icons -->
-              <div class="icons">
-                <ul>
-                    <li><a href=""><i class="ri-linkedin-box-fill"></i></a></li>
-                    <li><a href=""><i class="ri-github-fill"></i></a></li>
-                    <li><a href=""><i class="ri-instagram-fill"></i></a></li>
-                </ul>
-              </div>
+  <!-- Container -->
+<div class="container">
+  <!-- Title Area -->
+  <div class="todo-list">
+    <h2>To-Do List <img src="assets/images/icon.png" alt=""></h2>
+    <!-- Input Area -->
+    <div class="row">
+      <input type="text" id="input-box" placeholder="Enter Your Tasks">
+      <button>Add</button>
+    </div>
+    <!-- Lists Area -->
+     <ul id="lists">
+     </ul>
+  </div>
+</div>
 
-              <div class="menu-bar">
-                <i class="ri-menu-line"></i>
-              </div>
-        </nav>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    $(document).ready(function(){
+        $("#input-box").change(function(){
 
-        <div class="mobile-container">
-            <div class="mobile-nav">
-                <!-- Logo -->
-                <div class="logo">
-                  <h1>KATAKI</h1>
-               </div>
-               <!-- Tabs -->
-                <ol>
-                   <li><a href="" class="active">Home</a></li>
-                   <li><a href="">About</a></li>
-                   <li><a href="">Skills</a></li>
-                   <li><a href="">Portfolio</a></li>
-                   <li><a href="">Contact</a></li>
-                </ol>
-                <!-- Social Icons -->
-                 <div class="icons">
-                   <ul>
-                       <li><a href=""><i class="ri-linkedin-box-fill"></i></a></li>
-                       <li><a href=""><i class="ri-github-fill"></i></a></li>
-                       <li><a href=""><i class="ri-instagram-fill"></i></a></li>
-                   </ul>
-                 </div>
-   
-              <div class="cross">
-                  <i class="ri-close-large-line"></i>
-                </div>
-          </div>
-        </div>
-     </header>
+            var storedata = $(this).val();
 
+            $('ul').append('<li>'+storedata.trim()+'<i class="fas fa-times"></i>');
+              $(this).val("")
+        });
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        $('ul').on('click', '.fa-times', function(){
+            $(this).parent('li').fadeOut(200);
 
+        });
+        $('ul').on('click', 'li', function(e){
+            if (e.offsetX <= 28) { 
+                $(this).toggleClass('checked');
+            }
+        
+
+        });
+
+    });
 <script>
-
-$(document).ready(function(){
-    $(".menu-bar").click(function(){
-        $(".mobile-container").show(300);
-    })
-
-    $(".cross").click(function(){
-        $(".mobile-container").fadeOut(300);
-    })
-})
-
 
 </script>
 
